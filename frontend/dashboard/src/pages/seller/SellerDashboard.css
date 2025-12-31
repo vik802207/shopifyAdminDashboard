@@ -1,0 +1,428 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: #f6f8fc;
+  color: #0f172a;
+}
+
+/* ================= APP ================= */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #0f172a, #020617);
+  color: #fff;
+  padding: 24px 16px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 12px 14px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.sidebar nav a.active {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.45);
+}
+
+/* ================= MAIN ================= */
+.content {
+  flex: 1;
+  padding: 32px;
+}
+
+.content h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* ================= FILTER BAR ================= */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.filter-bar button {
+  background: #eef2ff;
+  color: #1e3a8a;
+  border: 1px solid #c7d2fe;
+}
+
+.filter-bar button:hover {
+  background: #dbeafe;
+}
+
+.total-count {
+  margin-left: 12px;
+  font-weight: 600;
+}
+
+/* ================= TABLE CARD ================= */
+.orders-layout.single {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+}
+
+.orders-table {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  padding: 14px 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody td {
+  padding: 16px 12px;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* ================= PAGINATION ================= */
+.pagination-bar {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination-bar select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+
+.pagination-buttons button {
+  background: #eef2ff;
+  color: #1e40af;
+  border: 1px solid #c7d2fe;
+  border-radius: 10px;
+  padding: 6px 12px;
+}
+
+.pagination-buttons button:hover {
+  background: #dbeafe;
+}
+
+.pagination-buttons button:disabled {
+  opacity: 0.4;
+}
+
+/* ================= EMPTY PAGE ================= */
+.empty-page {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+  .content {
+    padding: 16px;
+  }
+}
+.orders-layout.single {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.98)
+  );
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow:
+    0 20px 60px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  backdrop-filter: blur(8px);
+}
+.orders-table {
+  max-height: 70vh;
+  overflow: auto;
+  border-radius: 14px;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 2;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #64748b;
+  padding: 16px 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+tbody tr {
+  transition: all 0.18s ease;
+}
+
+tbody tr:nth-child(even) {
+  background: #fafbff;
+}
+
+tbody tr:hover {
+  background: #f1f5ff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
+}
+
+tbody td {
+  padding: 18px 14px;
+  font-size: 14px;
+  color: #0f172a;
+  border-bottom: 1px solid #eef2ff;
+}
+/* Order # */
+tbody td:nth-child(1) {
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+/* Total + Tax */
+tbody td:nth-child(3),
+tbody td:nth-child(4) {
+  font-weight: 700;
+  color: #0f172a;
+}
+tbody td:nth-child(5),
+tbody td:nth-child(6),
+tbody td:nth-child(7) {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+tbody td:nth-child(6),
+tbody td:nth-child(7) {
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.pagination-bar {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px dashed #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination-bar select {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 6px 12px;
+  border: 1px solid #c7d2fe;
+  font-weight: 600;
+}
+.pagination-buttons button {
+  background: linear-gradient(145deg, #f8fafc, #e0e7ff);
+  border-radius: 12px;
+  border: 1px solid #c7d2fe;
+  box-shadow:
+    4px 4px 12px rgba(15, 23, 42, 0.12),
+    -4px -4px 12px #ffffff;
+  padding: 8px 14px;
+  font-weight: 700;
+}
+
+.pagination-buttons button:hover {
+  box-shadow:
+    inset 3px 3px 8px rgba(15, 23, 42, 0.12),
+    inset -3px -3px 8px #ffffff;
+}
+.orders-table::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.orders-table::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 10px;
+}
+
+.orders-table::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+/* Hide scrollbar but allow scrolling */
+.orders-table {
+  max-height: 70vh;
+  overflow: auto;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* IE / Edge */
+  -ms-overflow-style: none;
+}
+
+/* Chrome, Safari, Edge */
+.orders-table::-webkit-scrollbar {
+  display: none;
+}
+/* Filter buttons base */
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid #c7d2fe;
+  background: #eef2ff;
+  color: #1e3a8a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.filter-btn:hover {
+  background: #dbeafe;
+}
+
+/* ACTIVE FILTER (Today / Yesterday) */
+.filter-btn.active {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+}
+/* ================= LOADER ================= */
+.loader-wrap {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.loader {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 4px solid #e5e7eb;
+  border-top-color: #2563eb;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-wrap p {
+  font-weight: 600;
+  color: #475569;
+}
+.orders-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.orders-table table {
+  min-width: 2200px; /* 👈 very important */
+  border-collapse: collapse;
+}
+/* ===== MOBILE TOPBAR ===== */
+.mobile-topbar {
+  display: none;
+  margin-bottom: 10px;
+}
+
+.hamburger {
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===== MOBILE SIDEBAR ===== */
+@media (max-width: 768px) {
+  .app {
+    position: relative;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    height: 100vh;
+    width: 240px;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .mobile-topbar {
+    display: flex;
+    align-items: center;
+  }
+
+  .content {
+    padding: 16px;
+  }
+}
+
+
+
+
+
+

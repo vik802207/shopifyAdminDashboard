@@ -1,0 +1,229 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+  color: #0f172a;
+}
+
+/* ================= APP LAYOUT ================= */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #0f172a, #020617);
+  color: #fff;
+  padding: 24px 16px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 12px 14px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.sidebar nav a.active {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+}
+
+/* ================= MAIN CONTENT ================= */
+.content {
+  flex: 1;
+  padding: 28px;
+}
+
+.content h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* ================= BUTTONS ================= */
+button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Filter buttons */
+.content > div button {
+  margin-right: 8px;
+  background: #e0e7ff;
+  color: #1e3a8a;
+  border: 1px solid #c7d2fe;
+}
+
+.content > div button:hover {
+  background: #c7d2fe;
+}
+
+/* ================= TABLE ================= */
+.orders-layout.single {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+.orders-table {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 14px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody td {
+  padding: 14px 12px;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+tbody tr {
+  transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* ================= BADGE STYLE (OPTIONAL IF STATUS ADD KARO) ================= */
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.paid {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge.delivered {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+/* ================= PAGINATION BAR ================= */
+.orders-layout.single > div:last-child {
+  margin-top: 18px;
+}
+
+.orders-layout select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  cursor: pointer;
+}
+
+.orders-layout select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+/* Pagination buttons */
+.orders-layout button {
+  background: #0f172a;
+}
+
+.orders-layout button:hover {
+  background: #020617;
+}
+
+/* ================= EMPTY PAGE ================= */
+.empty-page {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+}
+
+.empty-page h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.empty-page p {
+  color: #64748b;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+
+  .content {
+    padding: 14px;
+  }
+}
